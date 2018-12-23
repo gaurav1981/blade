@@ -37,13 +37,13 @@ func (ci *ContentsImage) GetScale() int {
 	return factor
 }
 
-func (ci *ContentsImage) GetSize() (float64, float64) {
+func (ci *ContentsImage) GetSize() (int, int) {
 	a := strings.Split(ci.Size, "x")
-	w, err := strconv.ParseFloat(a[0], 64)
+	w, err := strconv.Atoi(a[0])
 	if err != nil {
 		log.Fatalf("Converter(Resize): cannot parse width %s (%s).", a[0], err)
 	}
-	h, err := strconv.ParseFloat(a[1], 64)
+	h, err := strconv.Atoi(a[1])
 	if err != nil {
 		log.Fatalf("Converter(Resize): cannot parse height %s (%s).", a[0], err)
 	}
